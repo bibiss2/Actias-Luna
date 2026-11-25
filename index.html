@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="images/band.jpg.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d0d12;
+    --white: #ffffff;
+    --blue: #a9d6f5;
+  }
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    background: var(--blue);
+    color: var(--white);
+  }
+  h1, h2, h3, .navbar-brand {
+    font-family: 'Cinzel Decorative', serif;
+  }
+  .navbar {
+  background: var(--black) !important;
+  border-bottom: 3px dotted var(--blue);
+  position: relative;
+  margin-bottom: 16px;
+}
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+  background-image:
+    radial-gradient(circle at 50% 7px, var(--blue) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 50% 0, var(--black) 0 10px, var(--blue) 10px 12px, transparent 12.5px);
+  background-size: 24px 14px;
+  background-repeat: repeat-x;
+}
+  .navbar-brand, .nav-link:hover {
+    color: var(--blue) !important;
+  }
+  .btn-blue {
+    background: var(--blue);
+    color: var(--black);
+    border: 0;
+  }
+  .btn-blue:hover {
+    background: var(--white);
+    color: var(--black);
+  }
+ .about-photo {
+  border: 2px solid var(--blue);
+  border-radius: 12px;
+}
+h2 {
+  color: var(--blue);
+} 
+.members {
+  background: var(--blue);
+}
+.members h2,
+.members h3,
+.members p {
+  color: var(--black);
+  font-weight: bolder;  
+}
+.moth-list {
+  list-style: none;
+  padding: 0;
+}
+.moth-list li {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-bottom: 0.7rem;
+}
+.moth-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231f4e8c' d='M12 12C9 4 3 3 2 5 2 10 6 14 12 13zM12 12c3-8 9-9 10-7 0 5-4 9-10 8zM12 13C9 14 6 17 7 21c3 0 5-4 5-8zM12 13c3 1 6 4 5 8-3 0-5-4-5-8z'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: flutter 1.4s ease-in-out infinite;
+}
+.moth-list li:nth-child(2)::before { animation-delay: 0.3s; }
+.moth-list li:nth-child(3)::before { animation-delay: 0.6s; }
+.moth-list li:nth-child(4)::before { animation-delay: 0.9s; }
+@keyframes flutter {
+  0%, 100% { transform: scaleX(1) translateY(0); }
+  50% { transform: scaleX(0.5) translateY(-3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moth-list li::before { animation: none; }
+}
+.divider {
+  border: 0;
+  height: 1px;
+  margin: 2.5rem 0;
+  opacity: 1;
+  background: #1f4e8c;
+  position: relative;
+  overflow: visible;
+}
+.divider::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.8rem;
+  background: var(--blue);
+  color: #1f4e8c;
+  font-size: 1.2rem;
+  
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.world {
+  background:#ffffff ;
+  border-top: 1px dotted var(--blue);
+  border-bottom: 1px dotted var(--blue);
+}
+.feature-icon {
+  display: block;
+  font-size: 2.6rem;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+.feature h3 {
+  color: var(--black);
+}
+.fan-carousel {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid var(--blue);
+  border-radius: 14px;
+  background: #14141c;
+}
+.fan-carousel .carousel-item {
+  padding: 3rem 4rem 4rem;
+  text-align: center;
+}
+.fan-carousel blockquote {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.fan-name {
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+@media (max-width: 576px) {
+  .fan-carousel .carousel-item { padding: 2rem 3rem 3.5rem; }
+  .fan-carousel blockquote { font-size: 1.05rem; }
+}
+.site-footer {
+  background: #07070b;
+  border-top: 2px dotted var(--blue);
+  padding: 3rem 0 1.5rem;
+  margin-top: 3rem;
+}
+.site-footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: var(--blue);
+}
+.footer-title {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--blue);
+  font-size: 1.2rem;
+}
+.social a {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 0.5rem;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+}
+.social svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+}
+.social svg.solid { fill: var(--blue); stroke: none; }
+.social svg .dot { fill: var(--blue); stroke: none; }
+.social a:hover { background: var(--blue); }
+.social a:hover svg { stroke: var(--blue); }
+.social a:hover svg.solid, .social a:hover svg .dot { fill: var(--blue); }
+.footer-line { border-color: var(--blue); opacity: 0.4; }
+.site-footer,
+.site-footer p,
+.site-footer a,
+.site-footer .small {
+  color: var(--white);
+}
+.footer-title {
+  color: var(--blue);
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">ACTIAS LUNA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+       <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#music">Music</a></li>
+<li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="bg-dark text-center py-5">
+  <div class="container py-5">
+    <h1 class="display-3">Actias Luna</h1>
+    <p class="lead">We are a girl group band who debuted on 11.20.2024. Our music encapsulates the essance of gothic lolita, blending Victorian Gothic and syphonic elements with Japanese visual-kei and alternative rock.</p>
+  </div>
+</header>
+<section id="about" class="py-5 members">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <img src="images/band.jpg.png" class="img-fluid about-photo" alt="Describe your picture here">
+      </div>
+      <div class="col-md-6">
+        <h2>Get to know the memebers!</h2>
+        <p>We are four members, aged 19 to 23, each with her own style and taste. Our differences are what make us stand out, and what make us work so well together. </p>
+        <p>...</p>
+        <ul class="moth-list">
+  <li><strong>Stage name:</strong> Shisui, 23 years old</li>
+  <li><strong>Role:</strong> Group Leader</li>
+  <li><strong>Signature look:</strong> Uses a big fan as an extention of her arm making her dance moves look magical</li>
+  <li><strong>Loves:</strong> Quiet abandoned libraries</li>
+<hr class="divider">
+   <li><strong>Stage name:</strong> Lunette, 20 years old</li>
+  <li><strong>Role:</strong> Lead singer</li>
+  <li><strong>Signature look:</strong> Black veil over her face that she naver takes off giving her a mysterious aura</li>
+  <li><strong>Loves:</strong> Red Velvet Cake and tea time</li>
+<hr class="divider">
+   <li><strong>Stage name:</strong> Mia, 21 years old</li>
+  <li><strong>Role:</strong> Lead dancer</li>
+  <li><strong>Signature look:</strong> She has moth-like wings that make her look ghostly when she dances</li>
+  <li><strong>Loves:</strong> Cooking for loved ones</li>
+<hr class="divider">
+   <li><strong>Stage name:</strong> Odette, 19 years old</li>
+  <li><strong>Role:</strong> Song writter</li>
+  <li><strong>Signature look:</strong> Plague doctor mask decorated with baby blue bows</li>
+  <li><strong>Loves:</strong> Sitting by a quiet lake and writting in her joournal</li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <section id="music" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Check out our music <span class="heart">&#9825;</span> </h2>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card music-card h-100">
+          <img src="images/symphony of the moon.png" class="card-img-top" alt="Describe the cover art here">
+          <div class="card-body">
+            <h3 class="h4 card-title">Symphony of the Moon</h3>
+            <p class="release-info">Album · 2025</p>
+            <p class="card-text">This album blends darkwave with neoclassical, leading the listener into a forgotten manor on a sleepless night, where the moon is the only one listening to your sorrows.</p>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <article class="card music-card h-100">
+          <img src="images/into the doll house.png" class="card-img-top" alt="Describe the cover art here">
+          <div class="card-body">
+            <h3 class="h4 card-title">Into the Dollhouse</h3>
+            <p class="release-info">Single · 2025</p>
+            <p class="card-text">A cursed music box traps you in the dollhouse. While its melody plays, you must act like a doll and play along with... the others.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card music-card h-100">
+          <img src="images/silk thread, silver needle.png" class="card-img-top" alt="Describe the cover art here">
+          <div class="card-body">
+            <h3 class="h4 card-title">Silk Thread, Silver Needle</h3>
+            <p class="release-info">EP · 2024</p>
+            <p class="card-text">You sew your own life, like a moth spinning its silken cocoon, and one day you will hatch into something beautiful.</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+  <section id="gallery" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Through the Veil</h2>
+    <div class="row g-3">
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-carlos-misael-cruz-lopez-2150027172-33979534.jpg" class="img-fluid" loading="lazy" alt="Describe picture 1">
+          <figcaption>The only guest at midnight</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-hefehe-14780058.jpg" class="img-fluid" loading="lazy" alt="Describe picture 2">
+          <figcaption>Beyond the manor gates</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-olga-solo-84330351-10693851.jpg" class="img-fluid" loading="lazy" alt="Describe picture 3">
+          <figcaption>A flame for the sleepless</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-pixabay-62281.jpg" class="img-fluid" loading="lazy" alt="Describe picture 4">
+          <figcaption>Petals pressed in secret</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-sahil-ibn-sarafudeen-30275050.jpg" class="img-fluid" loading="lazy" alt="Describe picture 5">
+          <figcaption>Where the moon listens</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <figure class="gallery-item">
+          <img src="images/pexels-troopper84-28948485.jpg" class="img-fluid" loading="lazy" alt="Describe picture 6">
+          <figcaption>Curious ones</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+  <section id="world" class="py-5 world">
+  <div class="container">
+    <h2 class="text-center mb-5">The World of Actias Luna</h2>
+    <div class="row g-4 text-center">
+
+      <div class="col-md-4">
+        <div class="feature">
+          <span class="feature-icon">&#9790;</span>
+          <h3 class="h4">Dark Symphony</h3>
+          <p>We blend theatrical metal with baroque and neoclassical touches, so every song feels like a scene from a gothic play.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature">
+          <span class="feature-icon">&#10022;</span>
+          <h3 class="h4">Theatre of Shadows</h3>
+          <p>Our shows feel like a masquerade: candlelight, velvet curtains and four girls in lace stepping out of the dark.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature">
+          <span class="feature-icon">&#9825;</span>
+          <h3 class="h4">Velvet Details</h3>
+          <p>Each of us dresses in her own gothic lolita style, so the stage looks like four portraits from the same dark fairy tale. </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <section id="fans" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Words from Our Moths</h2>
+
+    <div id="fanCarousel" class="carousel slide fan-carousel" data-bs-ride="carousel" aria-label="Messages from fans">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#fanCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Quote 1"></button>
+        <button type="button" data-bs-target="#fanCarousel" data-bs-slide-to="1" aria-label="Quote 2"></button>
+        <button type="button" data-bs-target="#fanCarousel" data-bs-slide-to="2" aria-label="Quote 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <blockquote>"I clicked on one song by accident and ended up listening the whole night".</blockquote>
+          <p class="fan-name">Anna, Germany</p>
+        </div>
+        <div class="carousel-item">
+          <blockquote>"Finally, a band that treats gothic lolita as an art form"..</blockquote>
+          <p class="fan-name">Carina, Romania</p>
+        </div>
+        <div class="carousel-item">
+          <blockquote>"I'm so thankful for these beautiful sounds, please never stop making music!"</blockquote>
+          <p class="fan-name">Mio, Japan</p>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#fanCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous quote</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#fanCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next quote</span>
+      </button>
+    </div>
+  </div>
+  <footer class="site-footer" id="contact"></footer>
+</section>
+</section>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-5">
+        <p class="footer-title">Actias Luna</p>
+        <p>Born in moonlight, dressed in ribbons, loud in the dark.p>
+        <div class="social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="dot"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" class="solid"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V8z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" class="dot"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <p class="footer-title">Contact</p>
+        <p class="mb-1">Cluj-Napoca, Romania</p>
+        <p class="mb-1"><a href="mailto:write-an-email@example.com">actias.luna@contact.com</a></p>
+        <p>Bookings and Collaborations: Contact Us!</p>
+      </div>
+
+      <div class="col-md-3">
+        <p class="footer-title">Explore</p>
+        <p class="mb-1"><a href="#about">About</a></p>
+        <p class="mb-1"><a href="#music">Music</a></p>
+        <p class="mb-1"><a href="#gallery">Gallery</a></p>
+        <p><a href="#fans">Fans</a></p>
+      </div>
+
+    </div>
+    <hr class="footer-line">
+    <p class="small mb-0">&copy; 2026 Actias Luna. A fictional band created for a university project.</p>
+  </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var menu = document.getElementById('menu');
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
+    });
+  });
+</script>
+</body>
+</html>
